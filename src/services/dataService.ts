@@ -134,11 +134,11 @@ class DataService {
 
     let user = this.getUser(email);
     
-    if (!user && email === 'staff@issacasimov.in') {
+    if (!user && (email === 'staff@issacasimov.in' || email === 'admin@issacasimov.in')) {
       // Create staff user
       user = {
         id: `staff-${Date.now()}`,
-        name: 'Lab Staff',
+        name: email === 'admin@issacasimov.in' ? 'Administrator' : 'Lab Staff',
         email,
         role: 'staff',
         registeredAt: new Date().toISOString(),

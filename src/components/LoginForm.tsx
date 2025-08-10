@@ -202,6 +202,7 @@ const LoginForm: React.FC = () => {
                   onChange={(e) => handleNameChange(e.target.value)}
                   className="w-full pl-10 pr-4 py-4 bg-dark-700/50 border border-dark-600 rounded-xl text-white placeholder-dark-400 focus:border-peacock-500 focus:ring-2 focus:ring-peacock-500/20 transition-all duration-300 group-hover:border-dark-500"
                   placeholder="staff@issacasimov.in"
+                  placeholder="admin@issacasimov.in or staff@issacasimov.in"
                   required
                 />
               </div>
