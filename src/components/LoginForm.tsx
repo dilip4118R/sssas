@@ -14,6 +14,15 @@ const LoginForm: React.FC = () => {
   const [showValidationMsg, setShowValidationMsg] = useState('');
   const { login } = useAuth();
 
+  const handleEmailChange = (value: string) => {
+    // Auto-fill domain for admin
+    if (value === 'admin') {
+      setEmail('admin@issacasimov.in');
+    } else {
+      setEmail(value);
+    }
+  };
+
   const positions = ['shift-left', 'shift-top', 'shift-right', 'shift-bottom'];
 
   const shiftButton = () => {
@@ -44,9 +53,6 @@ const LoginForm: React.FC = () => {
   React.useEffect(() => {
     handleInputChange();
   }, [email, password]);
-  const handleNameChange = (name: string) => {
-    setEmail(name);
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -199,10 +205,9 @@ const LoginForm: React.FC = () => {
                 <input
                   type="email"
                   value={email}
-                  onChange={(e) => handleNameChange(e.target.value)}
+                  onChange={(e) => handleEmailChange(e.target.value)}
                   className="w-full pl-10 pr-4 py-4 bg-dark-700/50 border border-dark-600 rounded-xl text-white placeholder-dark-400 focus:border-peacock-500 focus:ring-2 focus:ring-peacock-500/20 transition-all duration-300 group-hover:border-dark-500"
-                  placeholder="staff@issacasimov.in"
-                  placeholder="admin@issacasimov.in or staff@issacasimov.in"
+                  placeholder="Type 'admin' for auto-fill"
                   required
                 />
               </div>
